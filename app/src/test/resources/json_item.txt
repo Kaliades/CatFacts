@@ -1,0 +1,16 @@
+{
+    "used": false,
+    "source": "user",
+    "type": "cat",
+    "deleted": false,
+    "_id": "5c609a02e549020014533039",
+    "updatedAt": "2020-01-02T02:02:48.616Z",
+    "createdAt": "2019-02-10T21:39:14.320Z",
+    "user": "5a9ac18c7478810ea6c06381",
+    "text": "All Scottish Folds descended from Susie, a white barn cat discovered in Scotland in the early 1960s. Susie sported the breed's folded ears – the result of a genetic mutation – and passed on the trait through breeding.",
+    "__v": 0,
+    "status": {
+        "verified": true,
+        "sentCount": 1
+    }
+}
