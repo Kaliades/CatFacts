@@ -1,17 +1,18 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/primaryLightColor</item>
         <item name="toolbarStyle">@style/Toolbar</item>
+        <item name="fontFamily">@font/montserrat</item>
     </style>
 
-    <style name="Toolbar" parent="Widget.MaterialComponents.Toolbar">
+    <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
         <item name="android:fitsSystemWindows">true</item>
-        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="titleTextColor">@color/primaryTextColor</item>
     </style>
 
     <style name="CardListItem">
@@ -21,6 +22,7 @@
         <item name="cardBackgroundColor">@color/cardBackground</item>
         <item name="cardCornerRadius">0dp</item>
     </style>
+
 
     <style name="ItemListId">
         <item name="android:fontFamily">@font/montserrat</item>
@@ -35,5 +37,19 @@
         <item name="android:textColor">@color/commonText</item>
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="DetailsText">
+        <item name="android:textColor">@color/commonText</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+
+    <style name="DetailsUpdatedTextTitle">
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/montserrat</item>
     </style>
 </resources>
