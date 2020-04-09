@@ -5,7 +5,35 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/primaryLightColor</item>
+        <item name="toolbarStyle">@style/Toolbar</item>
     </style>
 
+    <style name="Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+    </style>
+
+    <style name="CardListItem">
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="cardBackgroundColor">@color/cardBackground</item>
+        <item name="cardCornerRadius">0dp</item>
+    </style>
+
+    <style name="ItemListId">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ItemListText">
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/commonText</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
 </resources>
