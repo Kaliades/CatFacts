@@ -1,10 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/mainBackground"
     tools:context=".ui.cat_fact_details.CatFactDetailsFragment">
 
 
+    <TextView
+
+        android:id="@+id/catFactDetailsFragment_text"
+        style="@style/DetailsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Some Siamese cats appear cross-eyed because the nerves
+        from the left side of the brain go to mostly the right eye and the nerves
+        from the right side of the brain go mostly to the left eye. This causes some double vision,
+         which the cat tries to correct by “crossing” its eyes." />
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/DetailsUpdatedTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Updated at:"
+        app:layout_constraintEnd_toEndOf="@+id/catFactDetailsFragment_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/catFactDetailsFragment_text"
+        app:layout_constraintTop_toBottomOf="@+id/catFactDetailsFragment_text" />
+
+    <TextView
+        android:id="@+id/catFactDetailsFragment_updated"
+        style="@style/DetailsUpdatedTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:text="2020-01-02T02:02:48.616Z" />
 </androidx.constraintlayout.widget.ConstraintLayout>
