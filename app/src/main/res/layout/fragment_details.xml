@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBackground"
-    tools:context=".ui.cat_fact_details.CatFactDetailsFragment">
+    tools:context=".ui.cat_fact_details.DetailsFragment">
 
 
     <TextView

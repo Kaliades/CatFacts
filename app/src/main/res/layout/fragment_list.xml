@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBackground"
-    tools:context=".ui.cat_facts_list.CatFactsListFragment">
+    tools:context=".ui.cat_facts_list.ListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/catFactsListFragment_recyclerView"
@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/new_item_list_cat_facts" />
+        tools:listitem="@layout/item_list" />
 
 
     <ProgressBar

@@ -56,8 +56,8 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$ok_http"
 
     /*Koin*/
-    implementation "org.koin:koin-core:$koin"
-
+    implementation "org.koin:koin-android:$koin"
+    implementation "org.koin:koin-android-viewmodel:$koin"
     /*Coroutines*/
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
 
