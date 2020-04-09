@@ -1,9 +1,7 @@
 package com.simon_kulinski.catfacts.ui.cat_facts_list
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -27,6 +25,7 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         showProgressBar()
         setUpRecyclerView()
         initDataAndSetObserver()
@@ -61,4 +60,15 @@ class ListFragment : Fragment() {
         catFactListsFragment_progressBar.visibility = View.GONE
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_list, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_list_syn) {
+            showProgressBar()
+            viewModel.getNewData()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

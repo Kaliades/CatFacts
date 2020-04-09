@@ -18,6 +18,15 @@ class ListViewModel(
         _liveDataListOfCatFactsResult
 
     fun initData() {
+        if (_liveDataListOfCatFactsResult.value == null)
+            getDataFromRepository()
+    }
+
+    fun getNewData() {
+        getDataFromRepository()
+    }
+
+    private fun getDataFromRepository() {
         viewModelScope.launch {
             _liveDataListOfCatFactsResult.value = repository.getListOfCatFacts()
         }
