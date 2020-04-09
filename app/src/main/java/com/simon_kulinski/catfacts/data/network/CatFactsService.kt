@@ -12,10 +12,10 @@ import retrofit2.http.Path
 interface CatFactsService {
 
     @GET(LIST_OF_FACTS_PATH)
-    suspend fun getListOfCatFacts(): List<ApiCatFactModel>
+    suspend fun getListOfCatFacts(): List<ApiModel>
 
     @GET("{id}")
-    suspend fun getCatFactsById(@Path("id") id: String): ApiCatFactModel
+    suspend fun getCatFactsById(@Path("id") id: String): ApiModel
 
 
     companion object {
@@ -38,7 +38,7 @@ interface CatFactsService {
          * In case of tests send a mock url.
          * @param url Default value is null
          * */
-        fun getCatFactService(url: HttpUrl? = null): CatFactsService {
+        fun createCatFactService(url: HttpUrl? = null): CatFactsService {
             return retrofit
                 .baseUrl(url ?: BASE_URL.toHttpUrl())
                 .build()

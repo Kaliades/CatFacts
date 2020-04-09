@@ -25,7 +25,7 @@ class CatFactsRepositoryImplTest {
         mockWebServer.start()
         val mocUrl = mockWebServer.url("/")
         repository = CatFactsRepositoryImpl(
-            CatFactsService.getCatFactService(mocUrl),
+            CatFactsService.createCatFactService(mocUrl),
             TestCoroutineDispatcher()
         )
     }

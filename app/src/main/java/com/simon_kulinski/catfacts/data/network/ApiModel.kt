@@ -3,7 +3,7 @@ package com.simon_kulinski.catfacts.data.network
 import com.google.gson.annotations.SerializedName
 import com.simon_kulinski.catfacts.domain.models.CatFact
 
-data class ApiCatFactModel(
+data class ApiModel(
     @SerializedName("_id")
     val id: String,
     val text: String,
