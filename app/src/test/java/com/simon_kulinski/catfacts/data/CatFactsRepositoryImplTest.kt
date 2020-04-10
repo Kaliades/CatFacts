@@ -1,5 +1,6 @@
 package com.simon_kulinski.catfacts.data
 
+import android.text.format.DateFormat
 import com.simon_kulinski.catfacts.data.network.CatFactsService
 import com.simon_kulinski.catfacts.domain.models.CatFact
 import com.simon_kulinski.catfacts.domain.repositories.CatFactsRepository
@@ -9,10 +10,13 @@ import kotlinx.coroutines.test.TestCoroutineDispatcher
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import java.net.HttpURLConnection
-import org.junit.Assert.*
+import java.sql.Timestamp
+import java.text.SimpleDateFormat
+import java.util.*
 
 @ExperimentalCoroutinesApi
 class CatFactsRepositoryImplTest {
@@ -62,7 +66,7 @@ class CatFactsRepositoryImplTest {
             id = "5c609a02e549020014533039",
             text = "All Scottish Folds descended from Susie, a white barn cat discovered in Scotland in the early 1960s." +
                     " Susie sported the breed's folded ears – the result of a genetic mutation – and passed on the trait through breeding.",
-            updateTime = "2020-01-02T02:02:48.616Z"
+            updateTime = Timestamp(1577930568616)
         )
         runBlocking {
             val results = repository.getCatFact("")

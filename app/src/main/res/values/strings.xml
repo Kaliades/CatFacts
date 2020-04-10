@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CatFacts</string>
+    <string name="icon_name">Cat icon</string>
 
 </resources>
