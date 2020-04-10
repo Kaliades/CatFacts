@@ -8,14 +8,15 @@
         <item name="colorAccent">@color/primaryLightColor</item>
         <item name="toolbarStyle">@style/Toolbar</item>
         <item name="fontFamily">@font/montserrat</item>
+        <item name="colorControlNormal">@color/primaryTextColor</item>
     </style>
 
-    <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
+    <style name="Toolbar" parent="Widget.MaterialComponents.Toolbar">
         <item name="android:fitsSystemWindows">true</item>
         <item name="titleTextColor">@color/primaryTextColor</item>
     </style>
 
-    <style name="CardListItem">
+    <style name="CardItem">
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
@@ -45,14 +46,17 @@
     <style name="DetailsText">
         <item name="android:textColor">@color/commonText</item>
         <item name="android:textSize">22sp</item>
-        <item name="android:textStyle">italic</item>
+        <item name="android:textAlignment">center</item>
         <item name="android:fontFamily">@font/montserrat</item>
-        <item name="android:textAlignment">textStart</item>
     </style>
 
     <style name="DetailsUpdatedTextTitle">
         <item name="android:textColor">@color/commonText</item>
         <item name="android:textSize">18sp</item>
         <item name="fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="CardItem.Details">
+        <item name="contentPadding">20dp</item>
     </style>
 </resources>

@@ -9,9 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.simon_kulinski.catfacts.R
 import com.simon_kulinski.catfacts.domain.models.CatFact
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_details.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class DetailsFragment : Fragment() {
@@ -52,15 +55,20 @@ class DetailsFragment : Fragment() {
 
     private fun bind(catFact: CatFact) {
         catFactDetailsFragment_text.text = catFact.text
-        catFactDetailsFragment_updated.text = catFact.updateTime
+        catFactDetailsFragment_updated.text = catFact.getUpdateTimeAsFormattedString(
+            SimpleDateFormat(
+                "kk:mm dd/MM/yyy",
+                Locale.getDefault()
+            )
+        )
     }
 
     private fun showProgressBar() {
-        catFactDetailsFragment_progressBar.visibility = View.VISIBLE
+        requireActivity().progressBar.visibility = View.VISIBLE
     }
 
     private fun hideProgressBar() {
-        catFactDetailsFragment_progressBar.visibility = View.GONE
+        requireActivity().progressBar.visibility = View.GONE
     }
 
     companion object {

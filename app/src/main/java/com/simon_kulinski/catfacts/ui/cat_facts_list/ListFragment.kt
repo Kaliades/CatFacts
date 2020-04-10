@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.simon_kulinski.catfacts.R
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_list.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -53,11 +54,11 @@ class ListFragment : Fragment() {
     }
 
     private fun showProgressBar() {
-        catFactListsFragment_progressBar.visibility = View.VISIBLE
+        requireActivity().progressBar.visibility = View.VISIBLE
     }
 
     private fun hideProgressBar() {
-        catFactListsFragment_progressBar.visibility = View.GONE
+        requireActivity().progressBar.visibility = View.GONE
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
