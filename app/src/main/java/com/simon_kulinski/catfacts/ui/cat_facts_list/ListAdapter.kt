@@ -3,10 +3,12 @@ package com.simon_kulinski.catfacts.ui.cat_facts_list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.simon_kulinski.catfacts.R
 import com.simon_kulinski.catfacts.domain.models.CatFact
+import com.simon_kulinski.catfacts.ui.cat_fact_details.DetailsFragment
 import kotlinx.android.synthetic.main.item_list.view.*
 import kotlin.random.Random
 
@@ -25,7 +27,14 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
             icon.setImageResource(listOfIcons[Random.nextInt(0, 7)])
             card.setOnClickListener {
                 Navigation.findNavController(view)
-                    .navigate(R.id.action_catFactsListFragment_to_catFactDetailsFragment)
+                    .navigate(
+                        R.id.action_catFactsListFragment_to_catFactDetailsFragment, bundleOf(
+                            Pair(
+                                DetailsFragment.ID_KEY,
+                                catFact.id
+                            )
+                        )
+                    )
             }
         }
 

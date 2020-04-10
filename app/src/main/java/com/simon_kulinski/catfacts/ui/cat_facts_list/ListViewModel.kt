@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.simon_kulinski.catfacts.common.isValueEmpty
 import com.simon_kulinski.catfacts.domain.RequestResult
 import com.simon_kulinski.catfacts.domain.models.CatFact
 import com.simon_kulinski.catfacts.domain.repositories.CatFactsRepository
@@ -18,7 +19,7 @@ class ListViewModel(
         _liveDataListOfCatFactsResult
 
     fun initData() {
-        if (_liveDataListOfCatFactsResult.value == null)
+        if (_liveDataListOfCatFactsResult.isValueEmpty())
             getDataFromRepository()
     }
 
