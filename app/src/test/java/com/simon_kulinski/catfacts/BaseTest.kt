@@ -5,6 +5,7 @@ import com.simon_kulinski.catfacts.data.CatFactsRepositoryImpl
 import com.simon_kulinski.catfacts.data.network.CatFactsService
 import com.simon_kulinski.catfacts.di.viewModelModule
 import com.simon_kulinski.catfacts.domain.repositories.CatFactsRepository
+import com.simon_kulinski.catfacts.domain.repositories.NetworkManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
@@ -20,6 +21,7 @@ import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 import org.koin.dsl.module
 import org.koin.test.KoinTest
+import org.mockito.Mockito
 
 @ExperimentalCoroutinesApi
 @RunWith(JUnit4::class)
@@ -49,6 +51,11 @@ open class BaseTest : KoinTest {
                     TestCoroutineDispatcher()
                 )
             }
+
+            single<NetworkManager> {
+                Mockito.mock(NetworkManager::class.java)
+            }
+
         }
 
         @AfterClass
