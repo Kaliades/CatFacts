@@ -1,44 +1,21 @@
 package com.simon_kulinski.catfacts.data
 
-import android.text.format.DateFormat
-import com.simon_kulinski.catfacts.data.network.CatFactsService
+import com.simon_kulinski.catfacts.BaseTest
 import com.simon_kulinski.catfacts.domain.models.CatFact
-import com.simon_kulinski.catfacts.domain.repositories.CatFactsRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.TestCoroutineDispatcher
 import okhttp3.mockwebserver.MockResponse
-import okhttp3.mockwebserver.MockWebServer
-import org.junit.After
 import org.junit.Assert.assertEquals
-import org.junit.Before
 import org.junit.Test
+import org.koin.test.inject
 import java.net.HttpURLConnection
 import java.sql.Timestamp
-import java.text.SimpleDateFormat
-import java.util.*
 
 @ExperimentalCoroutinesApi
-class CatFactsRepositoryImplTest {
+class CatFactsRepositoryImplTest : BaseTest() {
 
-    private val mockWebServer = MockWebServer()
-    private lateinit var repository: CatFactsRepository
+    private val repository: CatFactsRepositoryImpl by inject()
 
-    @Before
-    fun setUp() {
-        mockWebServer.start()
-        val mocUrl = mockWebServer.url("/")
-        repository = CatFactsRepositoryImpl(
-            CatFactsService.createCatFactService(mocUrl),
-            TestCoroutineDispatcher()
-        )
-    }
-
-
-    @After
-    fun shutdown() {
-        mockWebServer.shutdown()
-    }
 
     @Test
     fun getListOfCatFacts() {
