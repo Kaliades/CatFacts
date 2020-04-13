@@ -17,7 +17,6 @@ interface CatFactsService {
     @GET("{id}")
     suspend fun getCatFactsById(@Path("id") id: String): ApiModel
 
-
     companion object {
         private const val LIST_OF_FACTS_PATH = "random?amount=30"
         private const val BASE_URL = "https://cat-fact.herokuapp.com/facts/"
