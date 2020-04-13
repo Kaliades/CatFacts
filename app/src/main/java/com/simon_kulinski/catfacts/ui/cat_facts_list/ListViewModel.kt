@@ -15,7 +15,7 @@ class ListViewModel(
     private val _liveDataListOfCatFactsResult by lazy { MutableLiveData<RequestResult<List<CatFact>>>() }
     val liveDataListOfCatFactsResult: LiveData<RequestResult<List<CatFact>>> =
         _liveDataListOfCatFactsResult
-    private val _progressBarrLiveData by lazy { MutableLiveData<Boolean>() }
+    private val _progressBarrLiveData by lazy { MutableLiveData(false) }
     val progressBarLiveData: LiveData<Boolean> = _progressBarrLiveData
     private var isConnected: Boolean = false
 
@@ -26,6 +26,7 @@ class ListViewModel(
         getDataFromRepository()
         MutableLiveData(isAvailable)
     }
+
 
     fun getNewData() {
         getDataFromRepository()

@@ -16,7 +16,7 @@ class DetailsViewModelTest : BaseTest() {
     private val viewModel: DetailsViewModel by inject { parametersOf("") }
 
     @Before
-    fun setResponse(){
+    fun setResponse() {
         val mockResponse = MockResponse()
             .setResponseCode(HttpURLConnection.HTTP_OK)
         mockWebServer.enqueue(mockResponse)
@@ -30,9 +30,6 @@ class DetailsViewModelTest : BaseTest() {
 
     @Test
     fun `Does the progressBar hides after the data has been loaded`() {
-        val mockResponse = MockResponse()
-            .setResponseCode(HttpURLConnection.HTTP_OK)
-        mockWebServer.enqueue(mockResponse)
         viewModel.initData()
         viewModel.progressBarLiveData.test().awaitNextValue().assertValue(false)
     }
