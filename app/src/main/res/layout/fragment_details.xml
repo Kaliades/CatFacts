@@ -1,45 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/CardItem.Details"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/mainBackground"
-    tools:context=".ui.cat_fact_details.DetailsFragment">
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <include
+        android:id="@+id/catFactDetailsFragment_errorScreen"
+        layout="@layout/error_screen"
+        android:visibility="gone" />
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/catFactDetailsFragment_text"
-            style="@style/DetailsText"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/catFactDetailsFragment_cardView"
+            style="@style/CardItem.Details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Some Siamese cats appear cross-eyed because the nerves
+            tools:context=".ui.cat_fact_details.DetailsFragment">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/catFactDetailsFragment_text"
+                    style="@style/DetailsText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Some Siamese cats appear cross-eyed because the nerves
         from the left side of the brain go to mostly the right eye and the nerves
         from the right side of the brain go mostly to the left eye. This causes some double vision,
          which the cat tries to correct by “crossing” its eyes." />
 
-        <TextView
-            android:id="@+id/catFactDetailsFragment_updated"
-            style="@style/DetailsUpdatedTextTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/catFactDetailsFragment_text"
-            app:layout_constraintTop_toBottomOf="@+id/catFactDetailsFragment_text"
-            tools:text="2020-01-02 02:02" />
+                <TextView
+                    android:id="@+id/catFactDetailsFragment_updated"
+                    style="@style/DetailsUpdatedTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/catFactDetailsFragment_text"
+                    app:layout_constraintTop_toBottomOf="@+id/catFactDetailsFragment_text"
+                    tools:text="2020-01-02 02:02" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

@@ -4,13 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.simon_kulinski.catfacts.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.error_screen.*
 import kotlinx.android.synthetic.main.fragment_list.*
-import kotlinx.android.synthetic.main.no_connection.*
+import kotlinx.android.synthetic.main.no_connection_screen.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class ListFragment : Fragment() {
@@ -49,11 +49,7 @@ class ListFragment : Fragment() {
             viewLifecycleOwner, Observer {
                 if (!it.hasError)
                     adapter.setUpDataSet(it.value!!)
-                else Toast.makeText(
-                    requireContext(),
-                    it.error!!.message ?: "Unknown no_connection",
-                    Toast.LENGTH_LONG
-                ).show()
+                else showErrorScreen(it.error!!)
             }
         )
         viewModel.progressBarLiveData.observe(viewLifecycleOwner, Observer {
@@ -63,6 +59,16 @@ class ListFragment : Fragment() {
         viewModel.isNetworkConnection.observe(viewLifecycleOwner, Observer {
             showNoInternetConnectionScreen(it)
         })
+    }
+
+    private fun showErrorScreen(error: Exception) {
+        catFactsListFragment_recyclerView.visibility = View.GONE
+        catFactsListFragment_noConnectionScreen.visibility = View.GONE
+        catFactsListFragment_errorScreen.visibility = View.VISIBLE
+        if (error.message == null)
+            errorScreen_message.setText(R.string.unknown_error)
+        else errorScreen_message.text = error.message
+
     }
 
     private fun enabledProgressBar(enabled: Boolean) {
@@ -76,10 +82,12 @@ class ListFragment : Fragment() {
     private fun showNoInternetConnectionScreen(isConnected: Boolean) {
         if (isConnected) {
             catFactsListFragment_recyclerView.visibility = View.VISIBLE
-            catFactDetailsFragment_noConnectionScreen.visibility = View.GONE
+            catFactsListFragment_noConnectionScreen.visibility = View.GONE
+            catFactsListFragment_errorScreen.visibility = View.GONE
         } else {
             catFactsListFragment_recyclerView.visibility = View.GONE
-            catFactDetailsFragment_noConnectionScreen.visibility = View.VISIBLE
+            catFactsListFragment_noConnectionScreen.visibility = View.VISIBLE
+            catFactsListFragment_errorScreen.visibility = View.GONE
         }
 
     }
