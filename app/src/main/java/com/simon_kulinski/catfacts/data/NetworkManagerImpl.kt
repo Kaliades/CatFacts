@@ -4,14 +4,13 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkRequest
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.simon_kulinski.catfacts.common.isValueEmpty
+import com.simon_kulinski.catfacts.common.isEmpty
 import com.simon_kulinski.catfacts.domain.repositories.NetworkManager
 
 
-class NetworkManagerImpl(private val context: Context) : NetworkManager {
+class NetworkManagerImpl(context: Context) : NetworkManager {
 
 
     private val liveData = MutableLiveData<Boolean>()
@@ -35,7 +34,7 @@ class NetworkManagerImpl(private val context: Context) : NetworkManager {
 
     override fun isNetworkAvailable(): LiveData<Boolean> {
         registerCallBack()
-        if (liveData.isValueEmpty())
+        if (liveData.isEmpty())
             liveData.postValue(false)
         return liveData
     }

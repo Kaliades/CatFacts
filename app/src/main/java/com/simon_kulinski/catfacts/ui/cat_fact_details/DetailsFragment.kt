@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+
 import androidx.lifecycle.Observer
 import com.simon_kulinski.catfacts.R
 import com.simon_kulinski.catfacts.domain.models.CatFact
@@ -33,7 +34,6 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         id = arguments?.getString(ID_KEY) ?: ""
-     /*   id = "591f98783b90f7150a19c187"*/
         initDataAndSetObservers()
     }
 
