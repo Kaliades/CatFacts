@@ -1,9 +1,13 @@
 package com.simon_kulinski.catfacts.ui
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.simon_kulinski.catfacts.R
+import com.simon_kulinski.catfacts.data.NetworkManagerImpl
 import kotlinx.android.synthetic.main.app_bar.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,9 +23,11 @@ class MainActivity : AppCompatActivity() {
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
             else supportActionBar?.setDisplayHomeAsUpEnabled(false)
         }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return super.onSupportNavigateUp() or navController.navigateUp()
     }
+
 }

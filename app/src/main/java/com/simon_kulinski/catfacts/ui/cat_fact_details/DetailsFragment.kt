@@ -43,7 +43,7 @@ class DetailsFragment : Fragment() {
                 else {
                     Toast.makeText(
                         requireContext(),
-                        it.error!!.message ?: "Unknown error",
+                        it.error!!.message ?: "Unknown no_connection",
                         Toast.LENGTH_LONG
                     ).show()
                 }
