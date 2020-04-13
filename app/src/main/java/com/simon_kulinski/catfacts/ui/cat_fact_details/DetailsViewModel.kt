@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.simon_kulinski.catfacts.common.isValueEmpty
+import com.simon_kulinski.catfacts.common.isEmpty
 import com.simon_kulinski.catfacts.domain.RequestResult
 import com.simon_kulinski.catfacts.domain.models.CatFact
 import com.simon_kulinski.catfacts.domain.repositories.CatFactsRepository
@@ -24,7 +24,7 @@ class DetailsViewModel(
     fun initData() {
         _progressBarrLiveData.value = true
         viewModelScope.launch {
-            if (_liveDataDetailsCatFact.isValueEmpty())
+            if (_liveDataDetailsCatFact.isEmpty())
                 _liveDataDetailsCatFact.value = repository.getCatFact(id)
             _progressBarrLiveData.value = false
         }

@@ -38,7 +38,7 @@ open class BaseTest : KoinTest {
     }
 
     @After
-    fun tearDown() {
+    fun clear() {
         stopKoin()
     }
 

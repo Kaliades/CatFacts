@@ -9,10 +9,14 @@
         android:id="@+id/catFactsListFragment"
         android:name="com.simon_kulinski.catfacts.ui.cat_facts_list.ListFragment"
         android:label="fragment_cat_facts_list"
-        tools:layout="@layout/fragment_list" >
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_catFactsListFragment_to_catFactDetailsFragment"
-            app:destination="@id/catFactDetailsFragment" />
+            app:destination="@id/catFactDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/catFactDetailsFragment"

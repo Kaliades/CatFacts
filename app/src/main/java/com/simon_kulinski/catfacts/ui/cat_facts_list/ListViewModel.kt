@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class ListViewModel(
     private val repository: CatFactsRepository,
-    private val networkManager: NetworkManager
+    networkManager: NetworkManager
 ) : ViewModel() {
 
     private val _liveDataListOfCatFactsResult by lazy { MutableLiveData<RequestResult<List<CatFact>>>() }

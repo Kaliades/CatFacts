@@ -97,8 +97,9 @@ class ListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_list_syn) {
+        if (item.itemId == R.id.menu_list_synchronize) {
             viewModel.getNewData()
+            return true
         }
         return super.onOptionsItemSelected(item)
     }
