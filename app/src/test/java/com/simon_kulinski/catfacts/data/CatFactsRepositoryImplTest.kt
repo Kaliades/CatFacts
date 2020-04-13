@@ -84,7 +84,7 @@ class CatFactsRepositoryImplTest {
         mockWebServer.enqueue(mockResponse)
         runBlocking {
             val result = repository.getCatFact("")
-            assertEquals("Expected true for error", true, result.hasError)
+            assertEquals("Expected true for no_connection", true, result.hasError)
         }
     }
 }
