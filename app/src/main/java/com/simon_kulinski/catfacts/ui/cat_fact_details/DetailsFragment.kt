@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.simon_kulinski.catfacts.R
 import com.simon_kulinski.catfacts.domain.models.CatFact
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.error_screen.*
 import kotlinx.android.synthetic.main.fragment_details.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -33,24 +33,23 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         id = arguments?.getString(ID_KEY) ?: ""
-        showProgressBar()
+     /*   id = "591f98783b90f7150a19c187"*/
+        initDataAndSetObservers()
+    }
+
+    private fun initDataAndSetObservers() {
         viewModel.liveDataDetailsCatFact.observe(
             viewLifecycleOwner,
             Observer {
-                hideProgressBar()
                 if (!it.hasError)
                     bind(it.value!!)
-                else {
-                    Toast.makeText(
-                        requireContext(),
-                        it.error!!.message ?: "Unknown no_connection",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
+                else showError(it.error!!)
             }
         )
+        viewModel.progressBarLiveData.observe(viewLifecycleOwner, Observer {
+            enabledProgressBar(it)
+        })
         viewModel.initData()
-
     }
 
     private fun bind(catFact: CatFact) {
@@ -63,12 +62,19 @@ class DetailsFragment : Fragment() {
         )
     }
 
-    private fun showProgressBar() {
-        requireActivity().progressBar.visibility = View.VISIBLE
+    private fun showError(exception: Exception) {
+        val message = exception.message ?: getString(R.string.unknown_error)
+        catFactDetailsFragment_cardView.visibility = View.GONE
+        catFactDetailsFragment_errorScreen.visibility = View.VISIBLE
+        errorScreen_message.text = message
     }
 
-    private fun hideProgressBar() {
-        requireActivity().progressBar.visibility = View.GONE
+    private fun enabledProgressBar(enabled: Boolean) {
+        if (enabled) {
+            requireActivity().progressBar.visibility = View.VISIBLE
+        } else {
+            requireActivity().progressBar.visibility = View.GONE
+        }
     }
 
     companion object {

@@ -20,8 +20,13 @@
         tools:listitem="@layout/item_list" />
 
     <include
-        android:id="@+id/catFactDetailsFragment_noConnectionScreen"
-        layout="@layout/no_connection"
+        android:id="@+id/catFactsListFragment_noConnectionScreen"
+        layout="@layout/no_connection_screen"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/catFactsListFragment_errorScreen"
+        layout="@layout/error_screen"
         android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,10 +18,15 @@ class DetailsViewModel(
     private val _liveDataDetailsCatFact: MutableLiveData<RequestResult<CatFact>> by lazy { MutableLiveData<RequestResult<CatFact>>() }
     val liveDataDetailsCatFact: LiveData<RequestResult<CatFact>> = _liveDataDetailsCatFact
 
+    private val _progressBarrLiveData by lazy { MutableLiveData<Boolean>() }
+    val progressBarLiveData: LiveData<Boolean> = _progressBarrLiveData
+
     fun initData() {
+        _progressBarrLiveData.value = true
         viewModelScope.launch {
             if (_liveDataDetailsCatFact.isValueEmpty())
                 _liveDataDetailsCatFact.value = repository.getCatFact(id)
+            _progressBarrLiveData.value = false
         }
     }
 
